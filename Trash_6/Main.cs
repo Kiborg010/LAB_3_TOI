@@ -440,6 +440,34 @@ namespace project
                 return true;
             }
         }
+
+        static string signs = "+-–=!&|><*/^$%()";
+        public static void TraverseTree(Node node, int index, string strIndex)
+        {
+            string basa = strIndex;
+            foreach (var child in node.Children)
+            {
+                if (child.Data != null)
+                {
+                    strIndex = basa + $"{index}.";
+                    Console.Write($"{strIndex} {child.Data}\t");
+                    index++;
+                }
+            }
+            Console.WriteLine();
+            index = 1;
+            foreach (var child in node.Children)
+            {
+                if (child.Data != null && !signs.Contains(child.Data))
+                {
+                    strIndex = basa + $"{index}.";
+                    TraverseTree(child, 1, strIndex);
+                }
+                index++;
+            }
+            
+        }
+
         static void Main()
         {
             Console.WriteLine("Введите строку: ");
@@ -470,201 +498,8 @@ namespace project
                 if (strMain.Replace(" ", "") == strResult && !flagMistake)
                 {
                     Console.WriteLine("Строка корректна");
-                    Console.Write("Первый уровень: ");
-                    int counter = 0;
-                    foreach (var child in tree.Root.Children)
-                    {
-                        Console.Write($"{child.Data} \t");
-                        try
-                        {
-                            Console.Write($"{allSigns[counter]} \t");
-                            counter++;
-                        }
-                        catch (IndexOutOfRangeException)
-                        {
-
-                        }
-                    }
-                    Console.Write($"\n\nВторой уровень: ");
-                    foreach (var child in tree.Root.Children)
-                    {
-                        foreach (var child1 in child.Children)
-                        {
-                            Console.Write($"{child1.Data} \t");
-                        }
-                    }
-                    Console.Write($"\n\nТретий уровень: ");
-                    foreach (var child in tree.Root.Children)
-                    {
-                        foreach (var child1 in child.Children)
-                        {
-                            foreach (var child2 in child1.Children)
-                            {
-                                Console.Write($"{child2.Data} \t");
-                            }
-                        }
-                    }
-                    Console.Write($"\n\nЧетвёртый уровень: ");
-                    foreach (var child in tree.Root.Children)
-                    {
-                        foreach (var child1 in child.Children)
-                        {
-                            foreach (var child2 in child1.Children)
-                            {
-                                foreach (var child3 in child2.Children)
-                                {
-                                    Console.Write($"{child3.Data} \t");
-                                }
-                            }
-                        }
-                    }
-                    Console.Write($"\n\nПятый уровень: ");
-                    foreach (var child in tree.Root.Children)
-                    {
-                        foreach (var child1 in child.Children)
-                        {
-                            foreach (var child2 in child1.Children)
-                            {
-                                foreach (var child3 in child2.Children)
-                                {
-                                    foreach (var child4 in child3.Children)
-                                    {
-                                        Console.Write($"{child4.Data} \t");
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    Console.Write($"\n\nШестой уровень: ");
-                    foreach (var child in tree.Root.Children)
-                    {
-                        foreach (var child1 in child.Children)
-                        {
-                            foreach (var child2 in child1.Children)
-                            {
-                                foreach (var child3 in child2.Children)
-                                {
-                                    foreach (var child4 in child3.Children)
-                                    {
-                                        foreach (var child5 in child4.Children)
-                                        {
-                                            Console.Write($"{child5.Data} \t");
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    Console.Write($"\n\nСедьмой уровень: ");
-                    foreach (var child in tree.Root.Children)
-                    {
-                        foreach (var child1 in child.Children)
-                        {
-                            foreach (var child2 in child1.Children)
-                            {
-                                foreach (var child3 in child2.Children)
-                                {
-                                    foreach (var child4 in child3.Children)
-                                    {
-                                        foreach (var child5 in child4.Children)
-                                        {
-                                            foreach (var child6 in child5.Children)
-                                            {
-                                                Console.Write($"{child6.Data} \t");
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    Console.Write($"\n\nВосьмой уровень: ");
-                    foreach (var child in tree.Root.Children)
-                    {
-                        foreach (var child1 in child.Children)
-                        {
-                            foreach (var child2 in child1.Children)
-                            {
-                                foreach (var child3 in child2.Children)
-                                {
-                                    foreach (var child4 in child3.Children)
-                                    {
-                                        foreach (var child5 in child4.Children)
-                                        {
-                                            foreach (var child6 in child5.Children)
-                                            {
-                                                foreach (var child7 in child6.Children)
-                                                {
-                                                    Console.Write($"{child7.Data} \t");
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    Console.Write($"\n\nДевятый уровень: ");
-                    foreach (var child in tree.Root.Children)
-                    {
-                        foreach (var child1 in child.Children)
-                        {
-                            foreach (var child2 in child1.Children)
-                            {
-                                foreach (var child3 in child2.Children)
-                                {
-                                    foreach (var child4 in child3.Children)
-                                    {
-                                        foreach (var child5 in child4.Children)
-                                        {
-                                            foreach (var child6 in child5.Children)
-                                            {
-                                                foreach (var child7 in child6.Children)
-                                                {
-                                                    foreach (var child8 in child7.Children)
-                                                    {
-                                                        Console.Write($"{child8.Data} \t");
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    Console.Write($"\n\nДесятый уровень: ");
-                    foreach (var child in tree.Root.Children)
-                    {
-                        foreach (var child1 in child.Children)
-                        {
-                            foreach (var child2 in child1.Children)
-                            {
-                                foreach (var child3 in child2.Children)
-                                {
-                                    foreach (var child4 in child3.Children)
-                                    {
-                                        foreach (var child5 in child4.Children)
-                                        {
-                                            foreach (var child6 in child5.Children)
-                                            {
-                                                foreach (var child7 in child6.Children)
-                                                {
-                                                    foreach (var child8 in child7.Children)
-                                                    {
-                                                        foreach (var child9 in child8.Children)
-                                                        {
-                                                            Console.Write($"{child9.Data} \t");
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
+                    int index = 1;
+                    TraverseTree(tree.Root, index, "");
                 }
             }
             else if (Task(strMain) == 1)
